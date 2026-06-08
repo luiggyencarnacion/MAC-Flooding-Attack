@@ -29,7 +29,7 @@
 
 1. [Objetivo del Laboratorio](#-objetivo-del-laboratorio)
 2. [Objetivo del Script](#-objetivo-del-script)
-3. [Requisitos](#-requisitos)
+3. [Requisitos](#-requisitos-para-utilizar-la-herramienta)
 4. [Instalación](#-instalación)
 5. [Documentación de la Red](#-documentación-de-la-red)
 6. [Funcionamiento del Script](#-funcionamiento-del-script)
@@ -75,8 +75,8 @@ El script `mac_flooding.py` genera y envía en lotes continuos tramas Ethernet c
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/<tu-usuario>/mac-flooding-attack.git
-cd mac-flooding-attack
+git clone https://github.com/luiggyencarnacion/MAC-Flooding-Attack.git
+cd MAC-Flooding-Attack
 
 # 2. Crear entorno virtual
 python3 -m venv venv
@@ -108,14 +108,14 @@ scapy>=2.5.0
                          │ Gig0/0
                     ┌────┴────┐
                     │  SW-1   │  ← Objetivo: tabla CAM
-                    └──┬───┬──┘     Capacidad máxima: ~8192 entradas
+                    └──┬───┬──┘     
                Gig0/2  │   │  Gig0/1
-              ┌─────────┘   └──────────┐
-         ┌────┴──────┐            ┌────┴────┐
-         │KaliLinux-1│            │   PC1   │
-         │ Atacante  │            │ Víctima │
+              ┌────────┘   └───────────┐
+         ┌────┴──────┐            ┌────┴─────┐
+         │KaliLinux-1│            │   PC1    │
+         │ Atacante  │            │ Víctima  │
          │10.6.63.13 │            │10.6.63.50│
-         └───────────┘            └─────────┘
+         └───────────┘            └──────────┘
                e0                      e0
 
   Tras saturación:
