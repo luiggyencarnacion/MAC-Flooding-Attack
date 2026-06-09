@@ -104,24 +104,26 @@ scapy>=2.5.0
                     ┌─────────┐
                     │   R-1   │  10.6.63.1/24
                     └────┬────┘
-                         │ g0/0
+                         │ Gig0/0
                          │ Gig0/0
                     ┌────┴────┐
                     │  SW-1   │  ← Objetivo: tabla CAM
                     └──┬───┬──┘     
                Gig0/2  │   │  Gig0/1
               ┌────────┘   └───────────┐
-         ┌────┴──────┐            ┌────┴─────┐
-         │KaliLinux-1│            │   PC1    │
-         │ Atacante  │            │ Víctima  │
-         │10.6.63.13 │            │10.6.63.50│
-         └───────────┘            └──────────┘
+         ┌────┴────────┐          ┌────┴───────┐
+         │ KaliLinux-1 │          │    PC1     │
+         │  Atacante   │          │  Víctima   │
+         │ 10.6.63.13  │          │ 10.6.63.50 │
+         └─────────────┘          └────────────┘
                e0                      e0
 
   Tras saturación:
   SW-1 (fail-open) → reenvía tráfico PC1↔R-1 por TODOS los puertos
   KaliLinux-1 (Wireshark) → captura tráfico de PC1 sin ser el destino
 ```
+
+![Topología GNS3](images/01_topologia_gns3.png)
 
 ### Tabla de Direccionamiento
 
@@ -207,7 +209,7 @@ Cada MAC de origen única → el switch crea una entrada en su tabla CAM mapeand
 ## 🚀 Uso y Ejecución
 
 ```bash
-sudo python3 mac_flooding.py
+sudo python3 mac_flooding_attack.py
 ```
 
 **Interacción esperada:**
@@ -297,14 +299,6 @@ evidencias/
 ## 🎬 Video de Demostración
 
 > 📺 **[Ver demostración en YouTube →](https://youtu.be/CuJQ9trv9tU?si=_qTKX-Mb8tjr4jKj)**
-
-- ✅ Topología en GNS3 con nombre **Luiggy Encarnación** y matrícula **2025-0663**
-- ✅ Hora y fecha del sistema visibles
-- ✅ Cara y voz del autor
-- ✅ Tabla CAM saturada verificada con `show mac address-table count`
-- ✅ Tráfico de PC1 capturado en Wireshark desde KaliLinux-1
-- ✅ Aplicación de port-security y verificación de bloqueo
-- ⏱️ Duración máxima: 5 minutos
 
 ---
 
